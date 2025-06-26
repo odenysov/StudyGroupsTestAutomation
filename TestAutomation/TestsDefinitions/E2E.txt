@@ -1,0 +1,39 @@
+E2E TESTS
+
+------------------------------------------------------------------------------
+- Users can join new Study group, created by another user
+Inputs: 2 existing users
+Steps: 
+	1. Log in as a student (user ID: 101).												- User logged in.
+	2. Navigate to the "Study Groups" page.												- "Study Groups" page is opened.
+	3. Click on Create button.															- Dialog 'New Study group' is opened.
+	4. Fill in subject as Math, name as 'Math club' and leave list of users empty		- All fields are filled in.
+	5. Click Submit button.																- Dialog is closed. Message popup with text 'Study Group has been created' appeared.
+	6. Log out.																			- Login page is displayed.
+	7. Log in as different user (user ID: 102).											- User logged in.
+	8. Navigate to the "Study Groups" page.												- "Study Groups" page is opened.
+	9. Select 'Math' option from the 'Subject' dropdown and click Search button			- Filtered result is displayed, all records are sorted by Created Date by default. Recently created Study group is on the top of the search result.
+	10. Click on the 'Join study group' button that is next to 'Math club' record.		- User has joined the group. List of study groups now contains new group.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Users can add another user to a new Study group
+Inputs: 2 existing users
+Steps: 
+	1. Log in as a student (user ID: 101).												- User logged in.
+	2. Navigate to the "Study Groups" page.												- "Study Groups" page is opened.
+	3. Click on Create button.															- Dialog 'New Study group' is opened.
+	4. Fill in subject as Chemistry, name as 'Chemistry club' and add any other user	- All fields are filled in.
+	5. Click Submit button.																- Dialog is closed. Message popup with text 'Study Group has been created' appeared.
+	6. Open created Study group.														- There are 2 members in the list of users: author and the user that was added in step 4.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Users can leave Study group
+Inputs: 2 existing users
+Pre-conditions: Study group with members exists.
+Steps: 
+	1. Log in as a student that is a member of Study group.								- User logged in.
+	2. Navigate to the "Study Groups" page.												- "Study Groups" page is opened.
+	3. Search for the Study group in the list.											- Group was found.
+	4. Click on the 'Leave from study group'.											- Message popup 'You have left from the study group' appeared. Study is not shown in the list of study groups anymore.
+Is Included to Regression: true
+------------------------------------------------------------------------------

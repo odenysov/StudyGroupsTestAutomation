@@ -1,0 +1,69 @@
+COMPONENT TESTS
+
+------------------------------------------------------------------------------
+- User can create Study group
+Inputs: list of valid users, valid subject, name and create date
+Steps: 
+	1. Call 'CreateStudyGroup' with valid data
+	Expected result: Study group is created
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- User can get Study groups
+Inputs: N/A
+Steps: 
+	1. Call 'GetStudyGroups'
+	Expected result: List of Study groups is returned
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- User can search Study groups by subject
+Inputs: Subject - 'Math'.
+Steps: 
+	1. Call 'SearchStudyGroups' with subject 'Math'
+	Expected result: List of Study groups is returned. All of them has subject 'Math'
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Search Study groups by subject returns empty list
+Inputs: Subject - 'Math'. Note that there are no records created with such subject yet.
+Steps: 
+	1. Call 'SearchStudyGroups' with subject 'Math'
+	Expected result: Empty list is returned.
+Is Included to Regression: false
+------------------------------------------------------------------------------
+- User can join study group
+Inputs: Id of existing user, study group id.
+Steps: 
+	1. Call 'JoinStudyGroup' with Id of existing user and existing study group id.
+	Expected result: User joined study group.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- User can leave study group
+Inputs: Id of existing user, study group id. User must be joined to the group.
+Steps: 
+	1. Call 'LeaveStudyGroup' with Id of existing user and existing study group id.
+	Expected result: User left study group.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- User can join multiple study groups
+Inputs: Id of existing user, multiple study group ids.
+Steps: 
+	1. Call multiple times 'JoinStudyGroup' with Id of existing user and different study groups.
+	Expected result: User joined all study group.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- User is able to create only one Study Group for a single Subject
+Inputs: list of valid users, valid subject, name and create date.
+Steps: 
+	1. Get existing Study group created by the user and remember the subject.
+	2. Call 'CreateStudyGroup' with the subject from Step 1.
+	Expected result: Study group can't be created with the same subject.
+	'Bad request' result is returned.
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Search study groups returns sorted result
+Inputs: Subject of existing study group, Sorting order(Ascending/Descending)
+Steps: 
+	1. Call 'SearchStudyGroups' with subject and sorting order(Ascending/Descending).
+	Result should return more than 1 record.
+	Expected result: Filtered users returned and they are sorted in specified order by CreatedDate.
+Is Included to Regression: true
+------------------------------------------------------------------------------

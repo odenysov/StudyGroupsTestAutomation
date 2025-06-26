@@ -1,0 +1,52 @@
+UNIT TESTS
+
+------------------------------------------------------------------------------
+- Study Group can be created with name with length 5
+Inputs: list of valid users, valid subject, name with length of 5 characters
+Steps: 
+	1. Try to create study group with a name with length of 5 characters
+	Expected result: StudyGroup object is created
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Study Group can be created with name with length 30
+Inputs: list of valid users, valid subject, name with length of 30 characters
+Steps: 
+	1. Try to create study group with a name with length of 30 characters
+	Expected result: StudyGroup object is created
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Too short name of Study Group throws exception
+Inputs: list of valid users, valid subject, name with length of 4 characters
+Steps: 
+	1. Try to create study group with a name with length of 4 characters
+	Expected result: ArgumentException is thrown
+Is Included to Regression: false
+------------------------------------------------------------------------------
+- Too long name of Study Group throws exception
+Inputs: list of valid users, valid subject, name with length of 31 characters
+Steps: 
+	1. Try to create study group with a name with length of 31 characters
+	Expected result: ArgumentException is thrown
+Is Included to Regression: false
+------------------------------------------------------------------------------
+- Study Group can be created with all valid subject
+Inputs: list of valid users, existing subject, valid name
+Steps: 
+	1. Try to create study group with valid subjects: Math, Physics, Chemistry
+	Expected result: StudyGroup objects are created
+Is Included to Regression: true
+------------------------------------------------------------------------------
+- Not existing subject of Study Group throws exception
+Inputs: list of valid users, subject = 999, valid name
+Steps: 
+	1. Try to create study group with invalid subject(different from Math, Chemistry or Physics) e.g. 999
+	Expected result: ArgumentException is thrown
+Is Included to Regression: false
+------------------------------------------------------------------------------
+- Study Group creation date saves correctly
+Inputs: list of valid users, existing subject, valid name, current date
+Steps: 
+	1. Try to create study group with CreateDate = DateTime.Now
+	Expected result: StudyGroup object is created, CreateDate is equal to entered date
+Is Included to Regression: true
+------------------------------------------------------------------------------

@@ -1,0 +1,34 @@
+Write a SQL query that will return "all the StudyGroups which have at least an user with 'name' starting on 'M' 
+sorted by 'creation date'" like "Miguel" or "Manuel".
+
+Considering that we have 3 tables:
+---------------------------
+StudyGroups				  |
+---------------------------
+Id						  |
+Name					  |
+CreationDate			  |
+...						  |
+--------------------------|
+
+---------------------------
+Users					  |
+---------------------------
+Id						  |
+Name					  |
+...						  |
+--------------------------|
+
+---------------------------
+StudyGroupUsers			  |
+---------------------------
+StudyGrouId				  |
+UserId					  |
+--------------------------|
+
+
+SELECT sg.Name FROM StudyGroups sg 
+JOIN StudyGroupUsers sgu ON sg.Id = sgu.StudyGroupId
+JOIN Users u ON u.Id = sgu.UserId
+WHERE u.Name LIKE 'M%'
+ORDER BY sg.CreationDate ASC;
